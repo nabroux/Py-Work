@@ -23,7 +23,7 @@ class Ball(GameObject):
         item = canvas.create_oval(x-self.radius, y-self.radius,
                                   x+self.radius, y+self.radius,
                                   fill='white')
-        super(Ball, self).__init__(canvas, item)
+        super().__init__(canvas, item)
 
     def update(self):
         coords = self.get_position()
@@ -66,7 +66,7 @@ class Paddle(GameObject):
                                        x + self.width / 2,
                                        y + self.height / 2,
                                        fill='blue')
-        super(Paddle, self).__init__(canvas, item)
+        super().__init__(canvas, item)
 
     def set_ball(self, ball):
         self.ball = ball
@@ -75,7 +75,7 @@ class Paddle(GameObject):
         coords = self.get_position()
         width = self.canvas.winfo_width()
         if coords[0] + offset >= 0 and coords[2] + offset <= width:
-            super(Paddle, self).move(offset, 0)
+            super().move(offset, 0)
             if self.ball is not None:
                 self.ball.move(offset, 0)
 
@@ -93,7 +93,7 @@ class Brick(GameObject):
                                        x + self.width / 2,
                                        y + self.height / 2,
                                        fill=color, tags='brick')
-        super(Brick, self).__init__(canvas, item)
+        super().__init__(canvas, item)
 
     def hit(self):
         self.hits -= 1
@@ -106,7 +106,7 @@ class Brick(GameObject):
 
 class Game(tk.Frame):
     def __init__(self, master):
-        super(Game, self).__init__(master)
+        super().__init__(master)
         self.lives = 3
         self.width = 610
         self.height = 400
